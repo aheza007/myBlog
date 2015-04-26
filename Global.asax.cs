@@ -1,9 +1,11 @@
-﻿using System;
+﻿using SimpleBlog.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
+using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace SimpleBlog
@@ -14,8 +16,11 @@ namespace SimpleBlog
     {
         protected void Application_Start()
         {
+            //var scripts = new ScriptBundle("~/MyBundle");
+            //scripts.IncludeDirectory("~/Scripts/MyDirectory", "*.js");
+            //BundleTable.Bundles.Add(scripts);
             AreaRegistration.RegisterAllAreas();
-
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

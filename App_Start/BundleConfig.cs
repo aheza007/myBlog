@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Optimization;
+
+namespace SimpleBlog.App_Start
+{
+    public class BundleConfig
+    {
+        public static void RegisterBundles(BundleCollection bundles)
+        {
+            bundles.Add(new ScriptBundle("~/Scripts/jquery").Include(
+                "~/Scripts/jquery/jquery-{version}.js")
+
+            );
+            //,
+            //"~/Scripts/Lib/jquery/jquery.*",
+            //"~/Scripts/Lib/jquery/jquery-ui-{version}.js"
+
+            //bundles.Add(new ScriptBundle("~/Scripts/knockout").Include(
+            //     "~/Scripts/Lib/knockout/knockout-{version}.js",
+            //     "~/Scripts/Lib/knockout/knockout-deferred-updates.js")
+            //);
+        }
+    }
+}

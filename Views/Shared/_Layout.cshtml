@@ -1,0 +1,22 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title -SimpleBlog</title>
+</head>
+<body>
+    <div>
+        <header>this the header</header>
+        <a href="@Url.RouteUrl("home")">Simple Blog</a><br />
+        <a href="@Url.RouteUrl("login")">Login</a>
+        @RenderBody()
+        <footer>this the footer</footer>
+        @RenderSection("Scripts",false)
+    </div>
+</body>
+</html>
