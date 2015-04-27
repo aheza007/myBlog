@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleBlog.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,21 @@ namespace SimpleBlog.Controllers
     {
         public ActionResult Login() {
 
-            return View();
+            return View(new AuthLogin() { });
+        }
+        [HttpPost]
+        public ActionResult Login(AuthLogin formData)
+        {
+            if(!ModelState.IsValid)
+                return View(formData);
+
+            if (formData.username != "desire aheza")
+            {
+                ModelState.AddModelError("CredentialMismatch", "We are sorry we don't know you");
+                return View(formData);
+            }
+            
+            return Content("Hii, "+formData.username);
         }
     }
 }
