@@ -10,18 +10,26 @@ namespace SimpleBlog.App_Start
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/Scripts/jquery").Include(
-                "~/Scripts/jquery/jquery-{version}.js")
+            bundles.Add(new ScriptBundle("~/admin/scripts")
+                .Include("~/Scripts/jquery-2.1.3.js")
+                .Include("~/Scripts/jquery.validate.js")
+                .Include("~/Scripts/jquery.validate.unobtrusive")
+                .Include("~/Scripts/bootstrap.js"));
 
-            );
-            //,
-            //"~/Scripts/Lib/jquery/jquery.*",
-            //"~/Scripts/Lib/jquery/jquery-ui-{version}.js"
+            bundles.Add(new ScriptBundle("~/scripts")
+                .Include("~/Scripts/jquery-2.1.3.js")
+                .Include("~/Scripts/jquery.validate.js")
+                .Include("~/Scripts/jquery.validate.unobtrusive.js")
+                .Include("~/Scripts/bootstrap.js"));
 
-            //bundles.Add(new ScriptBundle("~/Scripts/knockout").Include(
-            //     "~/Scripts/Lib/knockout/knockout-{version}.js",
-            //     "~/Scripts/Lib/knockout/knockout-deferred-updates.js")
-            //);
+            bundles.Add(new StyleBundle("~/admin/styles")
+                .Include("~/Content/style/bootstrap.css")
+                .Include("~/Content/style/Admin.css"));
+
+            bundles.Add(new StyleBundle("~/styles")
+                .Include("~/Content/Style/bootstrap.css")
+                .Include("~/Content/Style/Site.css"));
+            
         }
     }
 }

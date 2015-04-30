@@ -23,6 +23,7 @@ namespace SimpleBlog
             //);
             routes.MapRoute("Home", "", new { Controller="Posts",Action="Index"},namespaces);
             routes.MapRoute("Login", "login", new { Controller = "Auth", Action = "Login" },namespaces);
+            routes.MapRoute("Logout", "logout", new { Controller = "Auth", Action = "Logout" }, namespaces);
         }
     }
 }
