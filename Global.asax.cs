@@ -24,6 +24,15 @@ namespace SimpleBlog
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            Database.Configure();
+        }
+
+        protected void Application_BeginRequest() {
+            Database.OpenSession();
+        }
+
+        protected void Application_EndRequest() {
+            Database.CloseSession();
         }
     }
 }
