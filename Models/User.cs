@@ -14,6 +14,21 @@ namespace SimpleBlog.Models
         public virtual string Username { get; set; }
         public virtual string Email { get; set; }
         public virtual string PasswordHash { get; set; }
+
+        public virtual void SetPassword(string password)
+        {
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword(password,13);
+        }
+
+        public virtual bool Verify(string password) {
+
+            return BCrypt.Net.BCrypt.Verify(password, PasswordHash);
+        }
+
+        public static void FakeHash()
+        {
+            BCrypt.Net.BCrypt.HashPassword("", 13);
+        }
     }
 
     public class UserMaper : ClassMapping<User> {
